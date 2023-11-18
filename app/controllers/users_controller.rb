@@ -10,8 +10,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    @user = User.find_by(email: user_params[:email])
+
+    if @user && @user.authenticate(user_params[:password])
+      token = encode_token({user_id: @user.id})
+      render json: {user:@user, token: token}, status: :ok
+    else
+      render json: {error: "Usuário ou senha inválidos."}, status: :unprocessable_entity
+    end
+  end
+
+
+  private
+
 
   def user_params
-    params.permit(:username, :password)
+    params.permit(:username, :email, :password)
   end
 end

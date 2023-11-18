@@ -88,6 +88,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -133,6 +137,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.8)
+    rack-cors (2.0.1)
+      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -178,6 +184,7 @@ GEM
     sqlite3 (1.6.8-x64-mingw-ucrt)
     sqlite3 (1.6.8-x86_64-linux)
     stringio (3.0.9)
+    stripe (10.1.0)
     thor (1.3.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
@@ -198,10 +205,13 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   debug
+  dotenv-rails
   jwt
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.2)
   sqlite3 (~> 1.4)
+  stripe
   tzinfo-data
 
 RUBY VERSION
