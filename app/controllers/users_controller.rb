@@ -21,6 +21,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def getAuthorized
+    if !authorized_user
+      render json: {error: "Não autorizado"}, status: :unauthorized
+      return
+    end
+    render json: {user: authorized_user}, status: :ok
+  end
+
 
   private
 
